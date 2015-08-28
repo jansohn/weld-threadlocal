@@ -16,28 +16,25 @@ import org.slf4j.LoggerFactory;
 import com.test.webapp.Hello;
 
 @WebServlet("/HelloServlet")
-public class HelloServlet extends HttpServlet {
-
+public class HelloServlet extends HttpServlet
+{
 	private static Logger log = LoggerFactory.getLogger(HelloServlet.class);
 	private static final long serialVersionUID = 6222837567462922081L;
     @Inject
 	Hello hello;
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
     	log.info("Received call to HelloServlet!");
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
         out.println("<HTML>");
         out.println("<HEAD><TITLE>Bootstrap CDI</TITLE></HEAD>");
         out.println("<BODY>");
-        out.println(saySomething());
+        out.println(hello.sayHelloWorld());
         out.println("</BODY>");
         out.println("</HTML>");
         out.close();
-    }
-
-    public String saySomething() {
-        return hello.sayHelloWorld();
     }
 }

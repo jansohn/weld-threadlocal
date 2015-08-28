@@ -21,9 +21,7 @@ public class MyWebapp implements ServletContextListener
 	@Override
 	public void contextDestroyed(ServletContextEvent sce)
 	{
-		System.out.println("Servlet context is being destroyed!");
 		log.info("Servlet context is being destroyed!");
-		System.out.println("contextDestroyed finished!");
 	}
 
 }
